@@ -7,12 +7,13 @@
     tools:context=".Homepage">
 
     <TextView
+
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="HOMEPAGE"
         android:textSize="20dp"
-        tools:layout_editor_absoluteX="125dp"
-        tools:layout_editor_absoluteY="200dp"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="137dp"
+        tools:layout_editor_absoluteY="235dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
