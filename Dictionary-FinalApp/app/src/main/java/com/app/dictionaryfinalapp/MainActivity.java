@@ -6,15 +6,19 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
+import android.annotation.SuppressLint;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
+
+import com.app.dictionaryfinalapp.fragments.Dictionary;
+import com.app.dictionaryfinalapp.fragments.History;
+import com.app.dictionaryfinalapp.fragments.Thesaurus;
+import com.google.android.material.navigation.NavigationView;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -36,14 +40,35 @@ public class MainActivity extends AppCompatActivity {
 
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.nav_bar);
+
+
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.frame_layout, Dictionary.newInstance("", "")); // replace a Fragment with Frame Layout
+        transaction.commit();
+
+        NavigationView navView = findViewById(R.id.nav_view);
+        navView.setNavigationItemSelectedListener(item -> {
+            Fragment frag = null; // create a Fragment Object
+            int itemId = item.getItemId(); // get selected menu item's id
+// check selected menu item's id and replace a Fragment Accordingly
+            if (itemId == R.id.nav_dictionary) {
+                frag = Dictionary.newInstance("", "");
+            } else if (itemId == R.id.nav_thesaurus) {
+                frag = Thesaurus.newInstance("", "");
+            } else if (itemId == R.id.nav_history) {
+                frag = History.newInstance("", "");
+            }
+
+            if (frag != null) {
+                FragmentTransaction transaction1 = getSupportFragmentManager().beginTransaction();
+                transaction1.replace(R.id.frame_layout, frag); // replace a Fragment with Frame Layout
+                transaction1.commit(); // commit the changes
+                drawerLayout.closeDrawers(); // close the all open Drawer Views
+            }
+            return true;
+        });
     }
 
-    // override the onOptionsItemSelected()
-    // function to implement
-    // the item click listener callback
-    // to open and close the navigation
-    // drawer when the icon is clicked
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
@@ -51,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
@@ -63,4 +89,5 @@ public class MainActivity extends AppCompatActivity {
         super.onConfigurationChanged(newConfig);
         actionBarDrawerToggle.onConfigurationChanged(newConfig);
     }
+
 }
