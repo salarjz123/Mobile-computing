@@ -10,8 +10,4 @@
             android:id="@+id/nav_thesaurus"
             android:title="Thesaurus" />
 
-        <item
-            android:id="@+id/nav_history"
-            android:title="History" />
-
     </menu>
