@@ -3,13 +3,11 @@ package com.app.dictionaryfinalapp.fragments;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,20 +15,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.app.dictionaryfinalapp.Adapters.MeaningAdapter;
-import com.app.dictionaryfinalapp.Adapters.PhoneticsAdapter;
 import com.app.dictionaryfinalapp.OnFetchDataListener;
 import com.app.dictionaryfinalapp.R;
 import com.app.dictionaryfinalapp.RequestManager;
 import com.app.dictionaryfinalapp.model.ApiResponse;
-
-import java.io.IOException;
-
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
-import okhttp3.ResponseBody;
 
 
 /**
