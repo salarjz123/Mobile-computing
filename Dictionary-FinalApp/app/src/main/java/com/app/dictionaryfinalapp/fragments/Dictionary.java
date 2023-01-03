@@ -138,10 +138,6 @@ public class Dictionary extends Fragment {
     };
     private void showData(ApiResponse apIresponse) {
         textView_word.setText("Word: " + apIresponse.getWord());
-//        recycler_phonetics.setHasFixedSize(true);
-//        recycler_phonetics.setLayoutManager(new GridLayoutManager(getActivity(), 1));
-//        PhoneticsAdapter phoneticsAdapter = new PhoneticsAdapter(getActivity(), apIresponse.getPhonetics());
-//        recycler_phonetics.setAdapter(phoneticsAdapter);
 
         recycler_meanings.setHasFixedSize(true);
         recycler_meanings.setLayoutManager(new GridLayoutManager(getActivity(), 1));
