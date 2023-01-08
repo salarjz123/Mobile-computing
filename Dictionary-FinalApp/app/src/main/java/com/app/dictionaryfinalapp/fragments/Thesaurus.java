@@ -137,7 +137,7 @@ public class Thesaurus extends Fragment {
 
         recycler_meanings.setHasFixedSize(true);
         recycler_meanings.setLayoutManager(new GridLayoutManager(getActivity(), 1));
-        MeaningAdapter meaningAdapter = new MeaningAdapter(getActivity(), apIresponse.getMeanings());
+        MeaningAdapter meaningAdapter = new MeaningAdapter(getActivity(), apIresponse.getMeanings(),"Synonyms");
         recycler_meanings.setAdapter(meaningAdapter);
 
     }

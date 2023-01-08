@@ -5,6 +5,15 @@ import java.util.List;
 public class meanings {
     String partOfSpeech = "";
     List<com.app.dictionaryfinalapp.model.definitions> definitions = null;
+    List<String> synonyms = null;
+
+    public List<String> getSynonyms() {
+        return synonyms;
+    }
+
+    public void setSynonyms(List<String> synonyms) {
+        this.synonyms = synonyms;
+    }
 
     public String getPartOfSpeech() {
         return partOfSpeech;

@@ -141,7 +141,7 @@ public class Dictionary extends Fragment {
 
         recycler_meanings.setHasFixedSize(true);
         recycler_meanings.setLayoutManager(new GridLayoutManager(getActivity(), 1));
-        MeaningAdapter meaningAdapter = new MeaningAdapter(getActivity(), apIresponse.getMeanings());
+        MeaningAdapter meaningAdapter = new MeaningAdapter(getActivity(), apIresponse.getMeanings(),"Meaning");
         recycler_meanings.setAdapter(meaningAdapter);
 
     }

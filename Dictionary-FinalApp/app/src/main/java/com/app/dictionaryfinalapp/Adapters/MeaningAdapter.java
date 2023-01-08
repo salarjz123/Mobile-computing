@@ -2,6 +2,7 @@ package com.app.dictionaryfinalapp.Adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -15,12 +16,14 @@ import com.app.dictionaryfinalapp.model.meanings;
 import java.util.List;
 
 public class MeaningAdapter extends RecyclerView.Adapter<MeaningsViewHolder> {
-    private Context context;
+    private final Context context;
     protected List<meanings> meaningsList;
+    private final String selectionMode;
 
-    public MeaningAdapter(Context context, List<meanings> meaningsList) {
+    public MeaningAdapter(Context context, List<meanings> meaningsList, String selectionMode) {
         this.context = context;
         this.meaningsList = meaningsList;
+        this.selectionMode = selectionMode;
     }
 
     @NonNull
@@ -33,6 +36,12 @@ public class MeaningAdapter extends RecyclerView.Adapter<MeaningsViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull MeaningsViewHolder holder, int position) {
         holder.textView_partsOfSpeech.setText("Word type: " + meaningsList.get(position).getPartOfSpeech());
+        if (selectionMode == "Synonyms" && !meaningsList.get(position).getSynonyms().isEmpty()){
+            holder.textView_synonyms.setVisibility(View.VISIBLE);
+            holder.textView_synonyms.setText("Synonyms: " + meaningsList.get(position).getSynonyms());
+        }
+        else
+            holder.textView_synonyms.setVisibility(View.GONE);
         holder.recycler_definitions.setHasFixedSize(true);
         holder.recycler_definitions.setLayoutManager(new GridLayoutManager(context, 1));
         DefinitionAdapter definitionAdapter = new DefinitionAdapter(context, meaningsList.get(position).getDefinitions());
