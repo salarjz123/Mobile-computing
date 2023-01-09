@@ -22,32 +22,24 @@ public class MainActivity extends AppCompatActivity {
     public DrawerLayout drawerLayout;
     public ActionBarDrawerToggle actionBarDrawerToggle;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         drawerLayout = findViewById(R.id.my_drawer_layout);
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.nav_open, R.string.nav_close);
-
-        // pass the Open and Close toggle for the drawer layout listener
-        // to toggle the button
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
-
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.frame_layout, Dictionary.newInstance("", "")); // replace a Fragment with Frame Layout
+        transaction.replace(R.id.frame_layout, Dictionary.newInstance("", ""));
         transaction.commit();
-
         NavigationView navView = findViewById(R.id.nav_view);
         navView.setNavigationItemSelectedListener(item -> {
-            Fragment frag = null; // create a Fragment Object
-            int itemId = item.getItemId(); // get selected menu item's id
-// check selected menu item's id and replace a Fragment Accordingly
+            Fragment frag = null;
+            int itemId = item.getItemId();
+
             if (itemId == R.id.nav_dictionary) {
                 frag = Dictionary.newInstance("", "");
             } else if (itemId == R.id.nav_thesaurus) {
@@ -56,9 +48,9 @@ public class MainActivity extends AppCompatActivity {
 
             if (frag != null) {
                 FragmentTransaction transaction1 = getSupportFragmentManager().beginTransaction();
-                transaction1.replace(R.id.frame_layout, frag); // replace a Fragment with Frame Layout
-                transaction1.commit(); // commit the changes
-                drawerLayout.closeDrawers(); // close the all open Drawer Views
+                transaction1.replace(R.id.frame_layout, frag);
+                transaction1.commit();
+                drawerLayout.closeDrawers();
             }
             return true;
         });
@@ -75,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
-        // Sync the toggle state after onRestoreInstanceState has occurred.
+
         actionBarDrawerToggle.syncState();
     }
 
