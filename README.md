@@ -1,6 +1,5 @@
-This repository contains the files relevant to the assignment 1 of Mobile Computing. It also contains the original html version of the mobile optimized documentation and 2 other background colour variations along with it.
+This repository contains the files relevant to the assignment 1 and 2 of Mobile Computing. Dictionary-FinalApp folder contains the files related to the assignment 2 (Fully implemented app), the IDE used is Android Studio and the programming language is Java
 University of Hertfordshire, School of Computer Science, BSc Computer Science
-Student name: Salar Jahan Wahlah
+Student name: Salar Jahan Wahlah (university id 22020447)
 Level: 6
-Assignment title: Mobile Optimized Planning Documentation
 Year: 2022-2023
