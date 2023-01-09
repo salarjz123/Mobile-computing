@@ -48,7 +48,7 @@ public class Thesaurus extends Fragment {
         progressDialog.setTitle("Loading");
         progressDialog.show();
         RequestManager manager = new RequestManager(getActivity());
-        manager.getWordmeaning(listener, "powerful");
+        manager.getWordmeaning(listener, "ghost");
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
